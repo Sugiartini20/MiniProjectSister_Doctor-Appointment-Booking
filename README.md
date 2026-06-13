@@ -34,24 +34,6 @@ PROJECT SISTER/
 │ └── server.py # gRPC server
 ├── docker-compose.yml
 └── README.md
-📋 Ketentuan yang Sudah Terpenuhi
-✅ REST-API
-Booking service menyediakan REST API.
-
-✅ RPC (gRPC Stub-based)
-Queue Service menggunakan gRPC untuk komunikasi.
-
-✅ Asynchronous Workflow (RabbitMQ)
-Notification service consumer pesan dari RabbitMQ.
-
-✅ Persistent Storage (PostgreSQL)
-Semua data disimpan di PostgreSQL.
-
-✅ Leader Election (Algoritma Bully)
-3 instance Queue Service dengan failover otomatis.
-
-✅ Load Balancing API
-Load balancer otomatis menemukan dan mengirim request ke leader.
 
 🚀 Cara Menjalankan
 1. Jalankan Database & RabbitMQ
