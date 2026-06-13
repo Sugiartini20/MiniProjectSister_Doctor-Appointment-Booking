@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediBook - Booking Appointment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="top-bar-content">
+        <div class="logo">
+            <span>🏥</span>
+            MediBook
+        </div>
+        <a href="#" class="help-link">🆘 Bantuan 24/7</a>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Booking Dokter Online</h1>
+    <p>Konsultasi dengan dokter terpercaya. Mudah, cepat, dan aman.</p>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="booking-layout">
+        
+        <!-- Kolom Kiri: Form Booking -->
+        <div class="main-card">
+            <div class="card-header">
+                <h2>📋 Form Booking Konsultasi</h2>
+                <p>Isi data diri Anda dengan lengkap</p>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>👤 Nama Lengkap Pasien</label>
+                    <input type="text" id="patientName" placeholder="Contoh: Ahmad Wijaya" autocomplete="off">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>📅 Tanggal Konsultasi</label>
+                        <input type="date" id="tanggal">
+                    </div>
+                    <div class="form-group">
+                        <label>⏰ Jam Konsultasi</label>
+                        <input type="time" id="jam">
+                    </div>
+                </div>
+                
+                <button class="btn-primary" onclick="processBooking()">
+                    🚀 Booking Sekarang
+                </button>
+            </div>
+        </div>
+        
+        <!-- Kolom Kanan: Pilih Dokter + Notifikasi -->
+        <div>
+            <!-- Pilih Dokter -->
+            <div class="sidebar-card">
+                <h3><span>👨‍⚕️</span> Pilih Dokter</h3>
+                <div id="doctorListContainer"></div>
+                <input type="hidden" id="selectedDoctorId">
+            </div>
+            
+            <!-- Notifikasi -->
+            <div class="sidebar-card" style="margin-top: 20px;">
+                <h3><span>🔔</span> Notifikasi</h3>
+                <div id="notificationContainer">
+                    <div class="notification-box" style="background:#f8f9fa;">
+                        <div style="color:#666;">Menunggu aksi booking...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>MediBook - Distributed System Project © 2026</p>
+    <p style="font-size: 12px; margin-top: 8px;">REST API • gRPC • RabbitMQ • PostgreSQL • Docker • Leader Election</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

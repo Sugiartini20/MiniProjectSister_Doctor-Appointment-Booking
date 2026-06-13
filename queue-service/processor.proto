@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service QueueService {
+  rpc GetQueueNumber (QueueRequest) returns (QueueResponse);
+}
+
+message QueueRequest {
+  string patient_name = 1;
+}
+
+message QueueResponse {
+  int32 queue_number = 1;
+}

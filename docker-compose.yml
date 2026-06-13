@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: appointment_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  worker1:
+    build: ./worker
+    environment:
+      - WORKER_NAME=Worker1
+
+  worker2:
+    build: ./worker
+    environment:
+      - WORKER_NAME=Worker2
+
+  worker3:
+    build: ./worker
+    environment:
+      - WORKER_NAME=Worker3
+
+  load-balancer:
+    build: ./load-balancer
+    ports:
+      - "9090:7000"
+
+  locust:
+    image: locustio/locust
+    volumes:
+      - ./locust:/mnt/locust
+    command: >
+      -f /mnt/locust/locustfile.py
+      --host=http://load-balancer:7000
+    ports:
+      - "8089:8089"
+
+volumes:
+  postgres_data:
